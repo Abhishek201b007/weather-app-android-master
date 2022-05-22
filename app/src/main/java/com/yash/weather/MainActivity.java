@@ -181,6 +181,124 @@ public class MainActivity extends AppCompatActivity {
 
         }
     }
+//    public class DownloadTask extends AsyncTask<String,Void,String> {
+//
+//        @Override
+//        protected String doInBackground(String... urls) {
+//            String result = "";
+//            URL url;
+//            HttpURLConnection urlConnection = null;
+//
+//            try {
+//
+//                url = new URL(urls[0]);
+//                urlConnection = (HttpURLConnection) url.openConnection();
+//                InputStream in = urlConnection.getInputStream();
+//                InputStreamReader reader = new InputStreamReader(in);
+//                int data = reader.read();
+//
+//                while (data != -1) {
+//                    char current = (char) data;
+//                    result += current;
+//                    data = reader.read();
+//                }
+//
+//                return result;
+//
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//
+//                Thread thread = new Thread(){
+//                    public void run(){
+//                        runOnUiThread(new Runnable() {
+//                            public void run() {
+//                                Toast.makeText(getApplicationContext(), "Stuck in downloadtask_class :(", Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
+//                    }
+//                };
+//                thread.start();
+//
+//                return null;
+//            }
+//        }
+//
+//        @Override
+//        protected void onPostExecute(String s) {
+//            super.onPostExecute(s);
+//
+//            try {
+//                JSONObject jsonObject = new JSONObject(s);
+//
+//                String weatherInfo = jsonObject.getString("weather");
+//                String temppressInfo = jsonObject.getString("main");
+//                String mainInfo = "["+temppressInfo+"]";
+//                Log.i("Weather content", weatherInfo);
+//
+//                JSONArray weath = new JSONArray(weatherInfo);
+//                JSONArray tempinfo = new JSONArray(mainInfo);
+//
+//                String message = "";
+//
+//                for (int i = 0; i < weath.length(); i++) {
+//                    JSONObject jsonPart = weath.getJSONObject(i);
+//
+//                    String main = jsonPart.getString("main");
+//                    String description = jsonPart.getString("description");
+//
+//                    if (!main.equals("") && !description.equals("")) {
+//                        message += "Main : "+main+ "\nDescription : " + description + "\r\n";
+//                    }
+//                }
+//
+//                for (int i = 0; i < tempinfo.length(); i++) {
+//                    JSONObject jsonPart = tempinfo.getJSONObject(i);
+//
+//                    String temp = jsonPart.getString("temp");
+//                    String pressure = jsonPart.getString("pressure");
+//                    String humidity = jsonPart.getString("humidity");
+////
+//                    if (!temp.equals("") && !pressure.equals("")) {
+//                        message += "Temperature : " + temp + "\nPressure : "+pressure+"\nHumidity : "+humidity+"\r\n";
+//                    }
+//
+//                }
+//
+//                if (!message.equals("")) {
+//                    resultTextView.setText(message);
+//                } else {
+//
+//                    Thread thread = new Thread(){
+//                        public void run(){
+//                            runOnUiThread(new Runnable() {
+//                                public void run() {
+//                                    Toast.makeText(getApplicationContext(), "No text entered :(", Toast.LENGTH_SHORT).show();
+//                                }
+//                            });
+//                        }
+//                    };
+//                    thread.start();
+//
+//                }
+//
+//            } catch (Exception e) {
+//
+//                Thread thread = new Thread(){
+//                    public void run(){
+//                        runOnUiThread(new Runnable() {
+//                            public void run() {
+//                                Toast.makeText(getApplicationContext(), "Could not find weather :(", Toast.LENGTH_SHORT).show();
+//                            }
+//                        });
+//                    }
+//                };
+//                thread.start();
+//
+//                e.printStackTrace();
+//            }
+//
+//        }
+//    }
 
 
 }
